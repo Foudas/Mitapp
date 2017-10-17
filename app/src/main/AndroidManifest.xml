@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.christosfountoulis.flashchatnewfirebase"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launchermo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+
+        <activity
+            android:name=".WelcomeTillMsg.Welcome_Screen"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".WelcomeTillMsg.LoginActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"
+            android:supportsRtl="true">
+        </activity>
+
+
+
+        <activity
+            android:name="com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg.RegisterActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name="com.christosfountoulis.flashchatnewfirebase.MainChatActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+        </activity>
+
+        <activity
+            android:name=".CalendarCode"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+        </activity>
+
+        <activity
+            android:name=".HomePage"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".OrismosMeras">
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="MyDynamicCalendarLibrary-1.0.1">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/1db777fc5b8a0c7759c34e2d45111dd9e0a956e7/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/1db777fc5b8a0c7759c34e2d45111dd9e0a956e7/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.vatsaldesai92/MyDynamicCalendarLibrary/1.0.1/9204b24866f8a5f39b1b6b541056fe9754670a81/MyDynamicCalendarLibrary-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
