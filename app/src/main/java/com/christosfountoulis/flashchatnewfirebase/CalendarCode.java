@@ -1,6 +1,7 @@
 package com.christosfountoulis.flashchatnewfirebase;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,42 +10,69 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
+import com.christosfountoulis.flashchatnewfirebase.ForTheMsg.InstantMessage;
+import com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg.RegisterActivity;
 import com.desai.vatsal.mydynamiccalendar.EventModel;
 import com.desai.vatsal.mydynamiccalendar.GetEventListListener;
 import com.desai.vatsal.mydynamiccalendar.MyDynamicCalendar;
 import com.desai.vatsal.mydynamiccalendar.OnDateClickListener;
 import com.desai.vatsal.mydynamiccalendar.OnEventClickListener;
 import com.desai.vatsal.mydynamiccalendar.OnWeekDayViewClickListener;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import static com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg.RegisterActivity.CHAT_PREFS;
 
 public class CalendarCode extends AppCompatActivity {
 
     private Toolbar toolbar;
     private MyDynamicCalendar myCalendar;
     private Button ButtonGiaOrismoMeras;
+    final private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference mDatabaseReference;
+    private String orismaVar,epilegmeniMera;
+    private TextView orismaTextView;
+    private DatabaseReference mDatabaseReference2;
+    private String mDisplayName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_layout);
+        mDatabaseReference2 = FirebaseDatabase.getInstance().getReference();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         myCalendar = (MyDynamicCalendar) findViewById(R.id.myCalendar);
         ButtonGiaOrismoMeras = (Button) findViewById(R.id.OrismosMeras);
+        orismaTextView = (TextView) findViewById(R.id.orismos_meras_textview);
+
+        mDatabaseReference = database.getReference("/Imerominies");
 
         setSupportActionBar(toolbar);
 
-
         myCalendar.showMonthView();
+
+        SharedPreferences prefs = getSharedPreferences(RegisterActivity.CHAT_PREFS, MODE_PRIVATE);
+        mDisplayName = prefs.getString(RegisterActivity.DISPLAY_NAME_KEY , null);
+
+        // Telos Dimiourgias Vasikwn metavlitwn // ***********************************************
 
         myCalendar.setOnDateClickListener(new OnDateClickListener() {
             @Override
             public void onClick(Date date) {
                 Log.e("date", String.valueOf(date));
+                epilegmeniMera = new SimpleDateFormat("dd-MM").format(date);
+                Log.e("date epejergasmeni", epilegmeniMera);
             }
 
             @Override
@@ -56,27 +84,31 @@ public class CalendarCode extends AppCompatActivity {
         ButtonGiaOrismoMeras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent OrismosMeras = new Intent(CalendarCode.this, OrismosMeras.class);
-                startActivity(OrismosMeras);
+                InstantMessage imerominia_K_wra = new InstantMessage(epilegmeniMera ,mDisplayName);
+                mDatabaseReference2.child("Imerominies").push().setValue(imerominia_K_wra);
+
+                // Allagi tropou epiloghs hmeras v2
+                /*Intent OrismosMeras = new Intent(CalendarCode.this, OrismosMeras.class);
+                startActivity(OrismosMeras);*/
             }
         });
 
         myCalendar.setCalendarBackgroundColor("#eeeeee");
 //        myCalendar.setCalendarBackgroundColor(R.color.gray);
 
-        myCalendar.setHeaderBackgroundColor("#454265");
+        myCalendar.setHeaderBackgroundColor("#04060F");
 //        myCalendar.setHeaderBackgroundColor(R.color.black);
 
         myCalendar.setHeaderTextColor("#ffffff");
 //        myCalendar.setHeaderTextColor(R.color.white);
 
-        myCalendar.setNextPreviousIndicatorColor("#245675");
+        myCalendar.setNextPreviousIndicatorColor("#0294A5");
 //        myCalendar.setNextPreviousIndicatorColor(R.color.black);
 
-        myCalendar.setWeekDayLayoutBackgroundColor("#965471");
+        myCalendar.setWeekDayLayoutBackgroundColor("#012172");
 //        myCalendar.setWeekDayLayoutBackgroundColor(R.color.black);
 
-        myCalendar.setWeekDayLayoutTextColor("#246245");
+        myCalendar.setWeekDayLayoutTextColor("#BBBF95");
 //        myCalendar.setWeekDayLayoutTextColor(R.color.black);
 
 //        myCalendar.isSaturdayOff(true, "#ffffff", "#ff0000");
@@ -85,29 +117,29 @@ public class CalendarCode extends AppCompatActivity {
 //        myCalendar.isSundayOff(true, "#658745", "#254632");
 //        myCalendar.isSundayOff(true, R.color.white, R.color.red);
 
-        myCalendar.setExtraDatesOfMonthBackgroundColor("#324568");
+        myCalendar.setExtraDatesOfMonthBackgroundColor("#05328E");
 //        myCalendar.setExtraDatesOfMonthBackgroundColor(R.color.black);
 
-        myCalendar.setExtraDatesOfMonthTextColor("#756325");
+        myCalendar.setExtraDatesOfMonthTextColor("#ffffff");
 //        myCalendar.setExtraDatesOfMonthTextColor(R.color.black);
 
 //        myCalendar.setDatesOfMonthBackgroundColor(R.drawable.event_view);
         myCalendar.setDatesOfMonthBackgroundColor("#145687");
 //        myCalendar.setDatesOfMonthBackgroundColor(R.color.black);
 
-        myCalendar.setDatesOfMonthTextColor("#745632");
+        myCalendar.setDatesOfMonthTextColor("#ffffff");
 //        myCalendar.setDatesOfMonthTextColor(R.color.black);
 
 //        myCalendar.setCurrentDateBackgroundColor("#123412");
 //        myCalendar.setCurrentDateBackgroundColor(R.color.black);
 
-        myCalendar.setCurrentDateTextColor("#00e600");
+        myCalendar.setCurrentDateTextColor("#a79c93");
 //        myCalendar.setCurrentDateTextColor(R.color.black);
 
-        myCalendar.setEventCellBackgroundColor("#852365");
+        myCalendar.setEventCellBackgroundColor("#C1403D");
 //        myCalendar.setEventCellBackgroundColor(R.color.black);
 
-        myCalendar.setEventCellTextColor("#425684");
+        myCalendar.setEventCellTextColor("#ffffff");
 //        myCalendar.setEventCellTextColor(R.color.black);
 
         myCalendar.addEvent("5-10-2016", "8:00", "8:15", "Today Event 1");
@@ -147,16 +179,39 @@ public class CalendarCode extends AppCompatActivity {
         myCalendar.setHolidayCellTextColor("#d590bb");
 //        myCalendar.setHolidayCellTextColor(R.color.black);
 
+        //////// Epilogi twn Diakopwn, opou Diakopes = epomeni synantisi////////////////
+
         myCalendar.setHolidayCellClickable(false);
-        myCalendar.addHoliday("2-11-2016");
+        /*myCalendar.addHoliday("2-11-2016");
         myCalendar.addHoliday("8-11-2016");
         myCalendar.addHoliday("12-11-2016");
         myCalendar.addHoliday("13-11-2016");
         myCalendar.addHoliday("8-10-2016");
-        myCalendar.addHoliday("10-12-2016");
+        myCalendar.addHoliday("10-12-2016");*/
 
+        //   Pairnw ta dedomena pu uparxoun ston server kai ta exw sto textView SOSOSOS
+        mDatabaseReference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+                InstantMessage newPost = dataSnapshot.getValue(InstantMessage.class);
+                Log.d("Author", newPost.getMessage() + newPost.getAuthor() );
+                orismaVar = "Στις : " + newPost.getMessage() +"\n και προτάθηκε απο : "+ newPost.getAuthor();
+                orismaTextView.setText(orismaVar);
 
-//        myCalendar.setCalendarDate(5, 10, 2016);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {}
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
 
     }
 

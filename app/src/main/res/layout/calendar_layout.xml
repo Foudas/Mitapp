@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
@@ -9,7 +10,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
+        android:background="#04060F"
+        app:titleTextColor="@color/common_google_signin_btn_text_dark_default">
 
     </android.support.v7.widget.Toolbar>
 
@@ -19,7 +21,7 @@
         android:layout_height="407dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/orismos_meras_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -28,9 +30,11 @@
 
     <Button
         android:id="@+id/OrismosMeras"
-        android:layout_width="267dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/ButtonGiaCalendar1"/>
+        android:text="@string/ButtonGiaCalendar1"
+        android:textAlignment="center"
+        />
 
 </LinearLayout>

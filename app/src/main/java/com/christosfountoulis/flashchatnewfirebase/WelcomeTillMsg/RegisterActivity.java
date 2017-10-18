@@ -15,12 +15,14 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.christosfountoulis.flashchatnewfirebase.ForTheMsg.InstantMessage;
 import com.christosfountoulis.flashchatnewfirebase.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -36,6 +38,9 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText mPasswordView;
     private EditText mConfirmPasswordView;
 
+    private DatabaseReference mDatabaseReference2;
+    private String email;
+
     // Firebase instance variables
     private FirebaseAuth mAuth;
 
@@ -50,6 +55,8 @@ public class RegisterActivity extends AppCompatActivity {
         mPasswordView = (EditText) findViewById(R.id.register_password);
         mConfirmPasswordView = (EditText) findViewById(R.id.register_confirm_password);
         mUsernameView = (AutoCompleteTextView) findViewById(R.id.register_username);
+
+        mDatabaseReference2 = FirebaseDatabase.getInstance().getReference();
 
         // Keyboard sign in action
         mConfirmPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -132,7 +139,7 @@ public class RegisterActivity extends AppCompatActivity {
     // TODO: Create a Firebase user
 
     private  void createFirebaseUser() {
-        String email = mEmailView.getText().toString();
+        email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -157,6 +164,10 @@ public class RegisterActivity extends AppCompatActivity {
         String displayName = mUsernameView.getText().toString();
         SharedPreferences prefs = getSharedPreferences(CHAT_PREFS,0);
         prefs.edit().putString(DISPLAY_NAME_KEY, displayName).apply();
+
+        /////////////////////////////////////////////////////////////////////////////////////////
+        InstantMessage name_K_mail = new InstantMessage(displayName ,email);
+        mDatabaseReference2.child("Stoixeia").push().setValue(name_K_mail);
 
     }
 

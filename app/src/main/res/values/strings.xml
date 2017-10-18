@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">MITA</string>
-    <string name="prompt_email">Ypopto Onoma</string>
+    <string name="app_name">Mitapp</string>
+    <string name="prompt_email">eMail</string>
     <string name="prompt_password">Sunthimatiko</string>
     <string name="action_send">Steilto</string>
     <string name="error_field_required">Aparaitito</string>
@@ -9,18 +9,19 @@
     <string name="Sxetika_me">Sxetika me tin \n apistefth kainotomia</string>
     <string name="Orise">Όρισε</string>
     <string name="kane_slide">kane slide +=== gia imerologio</string>
+    <string name="backgroundPeriigisis">Super wow \n fonto periigisis</string>
 
     <string name="ButtonGiaCalendar1">Orise tin mera</string>
 
 
 
-    <string name="prompt_username">Username</string>
-    <string name="prompt_password_again">Confirm Password</string>
-    <string name="prompt_msg">Type a message</string>
+    <string name="prompt_username">Όνομα</string>
+    <string name="prompt_password_again">Επιβεβαίωση Κωδικού</string>
+    <string name="prompt_msg">Γράψτο</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_register">Register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="action_sign_up">Sign up</string>
+    <string name="action_sign_in_short">Μπες</string>
+    <string name="action_sign_up">ή απλώς γράψου</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">Password too short or does not match</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
