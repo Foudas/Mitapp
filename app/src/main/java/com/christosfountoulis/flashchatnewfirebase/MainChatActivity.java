@@ -18,8 +18,13 @@ import android.widget.Toast;
 import com.christosfountoulis.flashchatnewfirebase.ForTheMsg.ChatListAdapter;
 import com.christosfountoulis.flashchatnewfirebase.ForTheMsg.InstantMessage;
 import com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg.RegisterActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import static com.christosfountoulis.flashchatnewfirebase.HomePage.MIN_DISTANCE;
 
@@ -35,22 +40,28 @@ public class MainChatActivity extends AppCompatActivity {
     private ChatListAdapter mAdapter;
     private ImageButton mHomeButton;
 
+    private FirebaseAuth mAuth;
+    private DatabaseReference DatabaseRef_ForName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_chat);
 
         // TODO: Set up the display name and get the Firebase reference
-        setupDisplayName();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String userID = user.getUid();
+        DatabaseRef_ForName = mDatabaseReference.child("Stoixeia").child(userID).child("Onoma");
 
+        setupDisplayName();
 
         // Link the Views in the layout to the Java code
         mInputText = (EditText) findViewById(R.id.messageInput);
         mSendButton = (ImageButton) findViewById(R.id.sendButton);
         mChatListView = (ListView) findViewById(R.id.chat_list_view);
         mHomeButton = (ImageButton) findViewById(R.id.homeButton);
-
 
         // TODO: Send the message when the "enter" button is pressed
 
@@ -79,15 +90,32 @@ public class MainChatActivity extends AppCompatActivity {
             }
         });
 
-
     }
+
 
     // TODO: Retrieve the display name from the Shared Preferences
     private void setupDisplayName() {
+
+
+        DatabaseRef_ForName.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Log.i(TAG, dataSnapshot.getValue(String.class);
+                mDisplayName = dataSnapshot.getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+
+/*
+        // Anti na apoktaw to apothikevmeno sthn efarmogh, to pairnw kateutheian apo to Firebase :)
         SharedPreferences prefs = getSharedPreferences(RegisterActivity.CHAT_PREFS, MODE_PRIVATE);
         mDisplayName = prefs.getString(RegisterActivity.DISPLAY_NAME_KEY , null);
 
-        if (mDisplayName == null ) mDisplayName = "Anonymous";
+        if (mDisplayName == null ) mDisplayName = "Anonymous";*/
     }
 
 

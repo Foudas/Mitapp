@@ -2,6 +2,7 @@ package com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -21,7 +22,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-
 public class LoginActivity extends AppCompatActivity implements LogInToFirebase.AsyncResponse {
 
     // TODO: Vasikes Metavlites:
@@ -29,22 +29,23 @@ public class LoginActivity extends AppCompatActivity implements LogInToFirebase.
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-
         mEmailView = (AutoCompleteTextView) findViewById(R.id.login_email);
         mPasswordView = (EditText) findViewById(R.id.login_password);
+
 
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == R.id.login || id == EditorInfo.IME_NULL) {
                     attemptLogin();
+
                     return true;
                 }
                 return false;
@@ -73,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements LogInToFirebase.
     // TODO: Complete the attemptLogin() method
     private void attemptLogin() {
 
-        String email = mEmailView.getText().toString();
+        email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         if (email.equals("") || password.equals("")) return;
@@ -88,7 +89,7 @@ public class LoginActivity extends AppCompatActivity implements LogInToFirebase.
                     finish();
                     startActivity(intent);
                 }else{
-                    showErrorDialog("There was a problem signing in");
+                    showErrorDialog("Υπήρξε πρόβλημα δικέ μου :/");
                 }
             }
         }, this);

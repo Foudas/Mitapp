@@ -1,15 +1,24 @@
 package com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.christosfountoulis.flashchatnewfirebase.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+
+import static com.christosfountoulis.flashchatnewfirebase.R.id.btnAllaghsOnomatos;
 
 public class Welcome_Screen extends AppCompatActivity {
 
@@ -30,8 +39,6 @@ public class Welcome_Screen extends AppCompatActivity {
                 finish();
             }
         });
-
-        // TODO: Button gia ruthisi onomatos
 
     }
 

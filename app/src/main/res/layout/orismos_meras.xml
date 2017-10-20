@@ -42,6 +42,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="76dp"
         android:background="#0296FA"
-        android:text="@string/Orise"/>
+        android:text="@string/Orise"
+        android:textAllCaps="false"/>
 
 </RelativeLayout>

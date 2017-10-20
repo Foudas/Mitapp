@@ -1,11 +1,25 @@
 package com.christosfountoulis.flashchatnewfirebase;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import static com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg.RegisterActivity.CHAT_PREFS;
+import static com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg.RegisterActivity.DISPLAY_NAME_KEY;
 
 public class HomePage extends AppCompatActivity{
 
@@ -15,14 +29,62 @@ public class HomePage extends AppCompatActivity{
 
     //////////////////////////////////////////////////////////////////////////
 
+    private ImageButton btnAllaghsOnomatos;
+    private FirebaseAuth mAuth;
+    private DatabaseReference mDatabaseReference2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page_layout);
 
+        btnAllaghsOnomatos = (ImageButton) findViewById(R.id.btnAllaghsOnomatos);
+        mAuth = FirebaseAuth.getInstance();
+        mDatabaseReference2 = FirebaseDatabase.getInstance().getReference();
+
+
+        //////////////////Pop up parathiro////////////////////////////
+        final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        alert.setTitle("Αλλαγή ονόματος");
+        alert.setMessage("Βάλε ένα καινούργιο όνομα για το οποίο πιστεύεις πως θα φας λιγότερο μπούλινκ.");
+
+        // Set an EditText view to get user input
+        final EditText input = new EditText(this);
+        alert.setView(input);
+
+        alert.setPositiveButton("Κομπλέ", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // Xrisimopoioume katallila tin eisodo tou xristi.
+                String kainourgio_onoma = input.getText().toString();
+
+                if(!kainourgio_onoma.equals("")) {
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    String userID = user.getUid();
+                    mDatabaseReference2.child("Stoixeia").child(userID).child("Onoma").setValue(kainourgio_onoma);
+
+                    KanwToast(kainourgio_onoma);
+                }
+            }
+        });
+
+        alert.setNegativeButton("Άκυρο", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // Canceled.
+            }
+        });
+        //////////////////////////////////////////////////////////////
+
+        // TODO: Button gia ruthisi onomatos
+        btnAllaghsOnomatos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alert.show();
+            }
+        });
+
     }
 
-    //////////////////////////////////////////////////////////////////////////////////
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
@@ -48,6 +110,9 @@ public class HomePage extends AppCompatActivity{
         }
         return super.onTouchEvent(event);
     }
-    //////////////////////////////////////////////////////////////////////////////////
+
+    public void KanwToast(String mhnyma) {
+        Toast.makeText(this, mhnyma, Toast.LENGTH_LONG).show ();
+    }
 
 }
