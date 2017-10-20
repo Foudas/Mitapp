@@ -12,14 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="45395c2d-ca9c-4ba4-afff-b43f34bf5a8e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/christosfountoulis/flashchatnewfirebase/HomePage.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/christosfountoulis/flashchatnewfirebase/HomePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/christosfountoulis/flashchatnewfirebase/MainChatActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/christosfountoulis/flashchatnewfirebase/MainChatActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/christosfountoulis/flashchatnewfirebase/WelcomeTillMsg/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/christosfountoulis/flashchatnewfirebase/WelcomeTillMsg/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/christosfountoulis/flashchatnewfirebase/WelcomeTillMsg/RegisterActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/christosfountoulis/flashchatnewfirebase/WelcomeTillMsg/RegisterActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/christosfountoulis/flashchatnewfirebase/WelcomeTillMsg/Welcome_Screen.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/christosfountoulis/flashchatnewfirebase/WelcomeTillMsg/Welcome_Screen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/home_page_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/home_page_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/orismos_meras.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/orismos_meras.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/welcome_screen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/welcome_screen.xml" />
     </list>
     <ignored path="FlashChat-Firebase-Android.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -2485,7 +2477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508352512568</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Deftero commit meta tin fash tou data retrieving">
+      <created>1508524317202</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1508524317202</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2574,7 +2573,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Prwto commit meta tin fash tou data retrieving" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prwto commit meta tin fash tou data retrieving" />
+    <MESSAGE value="Deftero commit meta tin fash tou data retrieving" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deftero commit meta tin fash tou data retrieving" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
