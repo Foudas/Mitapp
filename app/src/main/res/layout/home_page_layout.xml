@@ -6,25 +6,20 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/backgroundPeriigisis"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:layout_marginBottom="77dp"
-        android:layout_above="@+id/btnAllaghsOnomatos"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:text="@string/kane_slide"
+    <com.spark.submitbutton.SubmitButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:text="@string/ChatScreen"
+        android:textColor="@color/gray"
+        android:textSize="10sp"
+        app:sub_btn_background="@color/whiteForAnimatedBTN"
+        app:sub_btn_duration="1000"
+        app:sub_btn_line_color="@color/colorPrimaryForAnimatedBTN"
+        app:sub_btn_ripple_color="@color/colorPrimaryForAnimatedBTN"
+        app:sub_btn_tick_color="@color/yellow"/>
 
     <ImageButton
         android:id="@+id/btnAllaghsOnomatos"

@@ -12,4 +12,10 @@
     <color name="light_green">#50d050</color>
     <color name="dark_green">#008000</color>
 
+    <color name="colorPrimaryForAnimatedBTN">#4c98bb</color>
+    <color name="colorPrimaryDarkForAnimatedBTN">#303F9F</color>
+    <color name="colorAccentForAnimatedBTN">#FF4081</color>
+    <color name="whiteForAnimatedBTN">#ffffff</color>
+    <color name="activity_background">#232530</color>
+
 </resources>

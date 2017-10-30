@@ -106,6 +106,7 @@
     <orderEntry type="jdk" jdkName="Android API 25 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="play-services-basement-11.0.2" level="project" />
+    <orderEntry type="library" exported="" name="submitbutton-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="MyDynamicCalendarLibrary-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-iid-11.0.2" level="project" />
     <orderEntry type="library" exported="" name="transition-25.3.1" level="project" />
