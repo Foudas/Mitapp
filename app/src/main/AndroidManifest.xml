@@ -36,7 +36,7 @@
         </activity>
 
         <activity
-            android:name="com.christosfountoulis.flashchatnewfirebase.MainChatActivity"
+            android:name=".MainChatActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize">
         </activity>
@@ -58,6 +58,12 @@
 
         <activity
             android:name=".OrismosMeras">
+        </activity>
+        <activity
+            android:name=".Person">
+        </activity>
+        <activity
+            android:name=".ContactsPage">
         </activity>
     </application>
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
@@ -26,15 +27,26 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_weight="0.96"
-        android:gravity="center"/>
+        android:gravity="center"
+        tools:ignore="HardcodedText"/>
 
-    <Button
+    <com.spark.submitbutton.SubmitButton
+        android:layout_marginLeft="50pt"
         android:id="@+id/OrismosMeras"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="0.95"
         android:text="@string/ButtonGiaCalendar1"
         android:textAlignment="center"
-        />
+        android:textColor="@color/gray"
+        android:textSize="10sp"
+        app:sub_btn_background="@color/whiteForAnimatedBTN"
+        app:sub_btn_duration="1000"
+        app:sub_btn_line_color="@color/colorPrimaryForAnimatedBTN"
+        app:sub_btn_ripple_color="@color/colorPrimaryForAnimatedBTN"
+        app:sub_btn_tick_color="@color/yellow"
+        tools:ignore="ObsoleteLayoutParam,RtlHardcoded,SmallSp"/>
 
 </LinearLayout>

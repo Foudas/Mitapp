@@ -2,34 +2,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
-                android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/prwti_dokimi_fontou_homescreen"
+                android:orientation="vertical">
 
     <com.spark.submitbutton.SubmitButton
+        android:background="@color/transparant"
+        android:id="@+id/toHomePage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="110dp"
         android:text="@string/ChatScreen"
         android:textColor="@color/gray"
         android:textSize="10sp"
         app:sub_btn_background="@color/whiteForAnimatedBTN"
-        app:sub_btn_duration="1000"
+        app:sub_btn_duration="100"
         app:sub_btn_line_color="@color/colorPrimaryForAnimatedBTN"
         app:sub_btn_ripple_color="@color/colorPrimaryForAnimatedBTN"
-        app:sub_btn_tick_color="@color/yellow"/>
+        app:sub_btn_tick_color="@color/yellow"
+        tools:ignore="SmallSp"/>
 
     <ImageButton
         android:id="@+id/btnAllaghsOnomatos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="51dp"
         android:background="@null"
-        app:srcCompat="@drawable/allagi_onomatos"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
         android:contentDescription=""
-        tools:ignore="ContentDescription"/>
+        app:srcCompat="@drawable/allagi_onomatos"
+        tools:ignore="ContentDescription"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>

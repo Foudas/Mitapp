@@ -156,6 +156,9 @@ public class RegisterActivity extends AppCompatActivity {
                     FirebaseUser user = mAuth.getCurrentUser();
                     String userID = user.getUid();
                     mDatabaseReference2.child("Stoixeia").child(userID).child("Email").setValue(email);
+
+                    SharedPreferences prefs = getSharedPreferences(CHAT_PREFS,0);
+                    prefs.edit().putString(EMAIL_PREF, email).apply();
                 } else {
                     saveDisplayName();
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);

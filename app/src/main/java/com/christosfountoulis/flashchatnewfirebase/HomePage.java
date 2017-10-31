@@ -4,6 +4,7 @@ package com.christosfountoulis.flashchatnewfirebase;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,10 +14,13 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg.LoginActivity;
+import com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg.Welcome_Screen;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.spark.submitbutton.SubmitButton;
 
 import static com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg.RegisterActivity.CHAT_PREFS;
 import static com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg.RegisterActivity.DISPLAY_NAME_KEY;
@@ -32,6 +36,7 @@ public class HomePage extends AppCompatActivity{
     private ImageButton btnAllaghsOnomatos;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabaseReference2;
+    private SubmitButton toHomePage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +46,7 @@ public class HomePage extends AppCompatActivity{
         btnAllaghsOnomatos = (ImageButton) findViewById(R.id.btnAllaghsOnomatos);
         mAuth = FirebaseAuth.getInstance();
         mDatabaseReference2 = FirebaseDatabase.getInstance().getReference();
-
+        toHomePage = (SubmitButton) findViewById(R.id.toHomePage);
 
         //////////////////Pop up parathiro////////////////////////////
         final AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -75,6 +80,14 @@ public class HomePage extends AppCompatActivity{
         });
         //////////////////////////////////////////////////////////////
 
+        toHomePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toHomePage = new Intent(HomePage.this, MainChatActivity.class);
+                startActivity(toHomePage);
+            }
+        });
+
         // TODO: Button gia ruthisi onomatos
         btnAllaghsOnomatos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,9 +115,10 @@ public class HomePage extends AppCompatActivity{
 
                 } else if (deltaX > MIN_DISTANCE){
                     Toast.makeText(this, "aristera -> dejia", Toast.LENGTH_SHORT).show ();
+
                     // TODO: Na oloklhroso to layout me tis epafes
-                    //Intent ContactsIntent = new Intent (HomePage.this, ContactsPage.class);
-                    //startActivity(ContactsIntent);
+                    Intent ContactsIntent = new Intent (HomePage.this, ContactsPage.class);
+                    startActivity(ContactsIntent);
                 }
                 break;
         }

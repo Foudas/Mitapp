@@ -26,6 +26,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.spark.submitbutton.SubmitButton;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class CalendarCode extends AppCompatActivity {
 
     private Toolbar toolbar;
     private MyDynamicCalendar myCalendar;
-    private Button ButtonGiaOrismoMeras;
+    private SubmitButton ButtonGiaOrismoMeras;
     final private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference mDatabaseReference;
     private String orismaVar,epilegmeniMera;
@@ -53,7 +54,7 @@ public class CalendarCode extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         myCalendar = (MyDynamicCalendar) findViewById(R.id.myCalendar);
-        ButtonGiaOrismoMeras = (Button) findViewById(R.id.OrismosMeras);
+        ButtonGiaOrismoMeras = (SubmitButton) findViewById(R.id.OrismosMeras);
         orismaTextView = (TextView) findViewById(R.id.orismos_meras_textview);
 
         mDatabaseReference = database.getReference("/Imerominies");
