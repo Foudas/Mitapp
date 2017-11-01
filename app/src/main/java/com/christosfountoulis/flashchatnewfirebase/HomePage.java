@@ -14,8 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg.LoginActivity;
-import com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg.Welcome_Screen;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -33,7 +31,7 @@ public class HomePage extends AppCompatActivity{
 
     //////////////////////////////////////////////////////////////////////////
 
-    private ImageButton btnAllaghsOnomatos;
+    private SubmitButton btnAllaghsOnomatos;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabaseReference2;
     private SubmitButton toHomePage;
@@ -43,7 +41,7 @@ public class HomePage extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page_layout);
 
-        btnAllaghsOnomatos = (ImageButton) findViewById(R.id.btnAllaghsOnomatos);
+        btnAllaghsOnomatos = (SubmitButton) findViewById(R.id.btnAllaghsOnomatos);
         mAuth = FirebaseAuth.getInstance();
         mDatabaseReference2 = FirebaseDatabase.getInstance().getReference();
         toHomePage = (SubmitButton) findViewById(R.id.toHomePage);
@@ -67,6 +65,9 @@ public class HomePage extends AppCompatActivity{
                     FirebaseUser user = mAuth.getCurrentUser();
                     String userID = user.getUid();
                     mDatabaseReference2.child("Stoixeia").child(userID).child("Onoma").setValue(kainourgio_onoma);
+
+                    SharedPreferences prefs = getSharedPreferences(CHAT_PREFS,0);
+                    prefs.edit().putString(DISPLAY_NAME_KEY, kainourgio_onoma).apply();
 
                     KanwToast(kainourgio_onoma);
                 }

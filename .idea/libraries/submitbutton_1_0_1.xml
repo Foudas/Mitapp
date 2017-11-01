@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="submitbutton-1.0.1">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/660a035410239e6796e05b0c2e51295143d7ff9b/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/660a035410239e6796e05b0c2e51295143d7ff9b/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.spark/submitbutton/1.0.1/27304accad70af72d60b0ea91eef698cba8ca83/submitbutton-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

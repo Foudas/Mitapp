@@ -14,10 +14,14 @@ import android.widget.TextView;
 
 import com.christosfountoulis.flashchatnewfirebase.ForTheMsg.InstantMessage;
 import com.christosfountoulis.flashchatnewfirebase.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -29,12 +33,17 @@ public class ChatListAdapter extends BaseAdapter{
     private String mDisplayname;
     private ArrayList<DataSnapshot> mSnapshotList;
 
+    private DatabaseReference DatabaseRef_ForName;
+    private FirebaseAuth mAuth;
+
+
     private ChildEventListener mListener = new ChildEventListener() {
         @Override
         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
             mSnapshotList.add(dataSnapshot);
             notifyDataSetChanged();
+
         }
 
         @Override
@@ -108,8 +117,32 @@ public class ChatListAdapter extends BaseAdapter{
         final InstantMessage message = getItem(position);
         final ViewHolder holder = (ViewHolder) convertView.getTag();
 
-        boolean isMe = message.getAuthor().equals(mDisplayname);
-        setChatRowAppearance(isMe, holder);
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // Retrieving Data me ton swsto tropo :)
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String userID = user.getUid();
+
+        DatabaseRef_ForName = mDatabaseReference.child("Stoixeia").child(userID).child("Onoma");
+        DatabaseRef_ForName.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Log.i(TAG, dataSnapshot.getValue(String.class);
+                mDisplayname = dataSnapshot.getValue(String.class);
+
+                boolean isMe = message.getAuthor().equals(mDisplayname);
+                setChatRowAppearance(isMe, holder);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        // boolean isMe = message.getAuthor().equals(mDisplayname);
+        // setChatRowAppearance(isMe, holder);
 
         String author = message.getAuthor();
         holder.authorName.setText(author);

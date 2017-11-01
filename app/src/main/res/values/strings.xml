@@ -14,6 +14,7 @@
     <string name="ButtonGiaCalendar1">Orise tin mera</string>
 
     <string name="ChatScreen">MiChat</string>
+    <string name="AllaghOnomatos">MiName</string>
 
     <string name="prompt_username">Όνομα</string>
     <string name="prompt_password_again">Επιβεβαίωση Κωδικού</string>

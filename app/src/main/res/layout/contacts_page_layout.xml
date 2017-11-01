@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+    <ImageButton
+        android:id="@+id/sakis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/transparant"
+        app:srcCompat="@drawable/mita_first"
+        tools:ignore="ContentDescription,ObsoleteLayoutParam"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <ImageButton
+        android:id="@+id/mw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparant"
+        app:srcCompat="@drawable/second"
+        tools:ignore="ContentDescription,ObsoleteLayoutParam"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/sakis"
+        android:layout_alignLeft="@+id/sakis"
+        android:layout_alignStart="@+id/sakis"/>
+
+    <ImageButton
+        android:id="@+id/peri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparant"
+        app:srcCompat="@drawable/third"
+        tools:ignore="ContentDescription,ObsoleteLayoutParam"
+        android:layout_above="@+id/fano"
+        android:layout_alignLeft="@+id/mw"
+        android:layout_alignStart="@+id/mw"
+        android:layout_marginBottom="11dp"/>
+
+    <ImageButton
+        android:id="@+id/fano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparant"
+        app:srcCompat="@drawable/fourth"
+        tools:ignore="ContentDescription,ObsoleteLayoutParam"
+        android:layout_above="@+id/indo"
+        android:layout_alignLeft="@+id/peri"
+        android:layout_alignStart="@+id/peri"
+        android:layout_marginBottom="20dp"/>
+
+    <ImageButton
+        android:id="@+id/indo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparant"
+        app:srcCompat="@drawable/fifth"
+        tools:ignore="ContentDescription,ObsoleteLayoutParam"
+        android:layout_above="@+id/lee"
+        android:layout_alignLeft="@+id/fano"
+        android:layout_alignStart="@+id/fano"
+        android:layout_marginBottom="22dp"/>
+
+    <ImageButton
+        android:id="@+id/lee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparant"
+        app:srcCompat="@drawable/sixth"
+        tools:ignore="ContentDescription,ObsoleteLayoutParam"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/indo"
+        android:layout_alignStart="@+id/indo"
+        android:layout_marginBottom="14dp"/>
+
+
+</RelativeLayout>

@@ -152,15 +152,18 @@ public class RegisterActivity extends AppCompatActivity {
                 if(!task.isSuccessful()) {
                     Log.d("FlashChat", "user creating failed");
                     showErrorDialog("Registration attempt failed");
+
+                } else {
+
                     // Kataxwrisi twn stoixeiwn sto firebase
                     FirebaseUser user = mAuth.getCurrentUser();
                     String userID = user.getUid();
                     mDatabaseReference2.child("Stoixeia").child(userID).child("Email").setValue(email);
 
+                    saveDisplayName();
                     SharedPreferences prefs = getSharedPreferences(CHAT_PREFS,0);
                     prefs.edit().putString(EMAIL_PREF, email).apply();
-                } else {
-                    saveDisplayName();
+
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                     finish();
                     startActivity(intent);
