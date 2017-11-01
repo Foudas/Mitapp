@@ -62,19 +62,35 @@ public class ContactsPage extends AppCompatActivity {
         fano.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent toProfile = new Intent(ContactsPage.this, Person.class);
+                startActivity(toProfile);
 
+                String atomo = "4";
+                SharedPreferences prefs = getSharedPreferences("Plirofories Mita",0);
+                prefs.edit().putString("Plirofories Mita", atomo).apply();
             }
         });
         indo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent toProfile = new Intent(ContactsPage.this, Person.class);
+                startActivity(toProfile);
+
+                String atomo = "5";
+                SharedPreferences prefs = getSharedPreferences("Plirofories Mita",0);
+                prefs.edit().putString("Plirofories Mita", atomo).apply();
 
             }
         });
         lee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent toProfile = new Intent(ContactsPage.this, Person.class);
+                startActivity(toProfile);
 
+                String atomo = "6";
+                SharedPreferences prefs = getSharedPreferences("Plirofories Mita",0);
+                prefs.edit().putString("Plirofories Mita", atomo).apply();
             }
         });
 

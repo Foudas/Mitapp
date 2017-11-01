@@ -1,17 +1,14 @@
 <resources>
     <string name="app_name">Mitapp</string>
     <string name="prompt_email">eMail</string>
-    <string name="prompt_password">Sunthimatiko</string>
-    <string name="action_send">Steilto</string>
-    <string name="error_field_required">Aparaitito</string>
-    <string name="error_incorrect_password">Lathos password bro</string>
+    <string name="prompt_password">Κωδικός</string>
+    <string name="action_send">Στείλτο</string>
+    <string name="error_field_required">Απαραίτητο</string>
+    <string name="error_incorrect_password">Λάθος κωδικός μπρο :/</string>
     <string name="kenos_xaraktiras">.</string>
-    <string name="Sxetika_me">Sxetika me tin \n apistefth kainotomia</string>
     <string name="Orise">Όρισε</string>
-    <string name="kane_slide">kane slide +=== gia imerologio</string>
-    <string name="backgroundPeriigisis">Super wow \n fonto periigisis</string>
 
-    <string name="ButtonGiaCalendar1">Orise tin mera</string>
+    <string name="ButtonGiaCalendar1">Όρισε την μέρα</string>
 
     <string name="ChatScreen">MiChat</string>
     <string name="AllaghOnomatos">MiName</string>
@@ -20,11 +17,11 @@
     <string name="prompt_password_again">Επιβεβαίωση Κωδικού</string>
     <string name="prompt_msg">Γράψτο</string>
     <string name="action_sign_in">Sign in or register</string>
-    <string name="action_register">Register</string>
+    <string name="action_register">ή απλώς γράψου</string>
     <string name="action_sign_in_short">Μπες</string>
-    <string name="action_sign_up">ή απλώς γράψου</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">Password too short or does not match</string>
+    <string name="action_sign_up">Τέλος</string>
+    <string name="error_invalid_email">Άκυρη Διεύθυνση</string>
+    <string name="error_invalid_password">ο Κωδικός είναι πολύ μικρός ή δεν ταιριάζει</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>

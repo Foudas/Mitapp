@@ -5,6 +5,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
+              android:gravity="center"
               android:weightSum="1">
 
     <android.support.v7.widget.Toolbar
@@ -31,7 +32,6 @@
         tools:ignore="HardcodedText"/>
 
     <com.spark.submitbutton.SubmitButton
-        android:layout_marginLeft="50pt"
         android:id="@+id/OrismosMeras"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

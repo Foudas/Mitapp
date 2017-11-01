@@ -51,10 +51,8 @@ public class Person extends AppCompatActivity {
             text.setText("aka Μω.");
 
             TextView sex_TextView = (TextView) findViewById(R.id.sex_TextView);
-            sex_TextView.setText("Φυλο: Unkown");
+            sex_TextView.setText("Γιατί σκατά να ενδιαφερθείς για τον Μω;");
 
-            TextView fb_prof = (TextView) findViewById(R.id.fb);
-            fb_prof.setText("Facebook: Μανωλης Τζιαμπουρας");
         } else if (mNumber.equals("3")){
             ImageView eikona = (ImageView) findViewById(R.id.eikonaAtomou);
             eikona.setBackgroundResource(R.drawable.third);
@@ -67,6 +65,79 @@ public class Person extends AppCompatActivity {
 
             TextView fb_prof = (TextView) findViewById(R.id.fb);
             fb_prof.setText("Facebook: Χάρης Πεχλιβανίδης");
+
+            TextView arithmos_prwin = (TextView) findViewById(R.id.arithmos_prwin);
+            arithmos_prwin.setText("Αριθμός Πρώην: Οσες οι πριγκίπισσες σε ασπρα αλογα");
+
+            TextView til = (TextView) findViewById(R.id.til);
+            til.setText("6943816306");
+
+            TextView stathero = (TextView) findViewById(R.id.stathero);
+            stathero.setText("2310438690");
+        } else if (mNumber.equals("4")){
+            ImageView eikona = (ImageView) findViewById(R.id.eikonaAtomou);
+            eikona.setBackgroundResource(R.drawable.third);
+
+            TextView text = (TextView) findViewById(R.id.text);
+            text.setText("aka Φάνο");
+
+            TextView sex_TextView = (TextView) findViewById(R.id.sex_TextView);
+            sex_TextView.setText("Φυλο: Γκόλουμ");
+
+            TextView fb_prof = (TextView) findViewById(R.id.fb);
+            fb_prof.setText("Facebook: Thanos Ploumistos");
+
+            TextView arithmos_prwin = (TextView) findViewById(R.id.arithmos_prwin);
+            arithmos_prwin.setText("Αριθμός Πρώην: Ίδιος με τον αριθμό ατόμων που τον κυνηγάνε");
+
+            TextView til = (TextView) findViewById(R.id.til);
+            til.setText("69********");
+
+            TextView stathero = (TextView) findViewById(R.id.stathero);
+            stathero.setText("2310419351");
+
+        } else if (mNumber.equals("5")) {
+            ImageView eikona = (ImageView) findViewById(R.id.eikonaAtomou);
+            eikona.setBackgroundResource(R.drawable.third);
+
+            TextView text = (TextView) findViewById(R.id.text);
+            text.setText("aka Τζονις Γκει Ινδος Αρθουρος");
+
+            TextView sex_TextView = (TextView) findViewById(R.id.sex_TextView);
+            sex_TextView.setText("Φυλο: Παραλίας");
+
+            TextView fb_prof = (TextView) findViewById(R.id.fb);
+            fb_prof.setText("Facebook: Γιαννης Σαρηκωστας");
+
+            TextView arithmos_prwin = (TextView) findViewById(R.id.arithmos_prwin);
+            arithmos_prwin.setText("Αριθμός Πρώην: Οσες λέει μείον 10");
+
+            TextView til = (TextView) findViewById(R.id.til);
+            til.setText("69********");
+
+            TextView stathero = (TextView) findViewById(R.id.stathero);
+            stathero.setText("2310******(Τζαμπα θα παρεις ειναι αλλου)");
+        }else if (mNumber.equals("6")) {
+            ImageView eikona = (ImageView) findViewById(R.id.eikonaAtomou);
+            eikona.setBackgroundResource(R.drawable.third);
+
+            TextView text = (TextView) findViewById(R.id.text);
+            text.setText("aka Σαβουρογαμης κολλητός λη");
+
+            TextView sex_TextView = (TextView) findViewById(R.id.sex_TextView);
+            //sex_TextView.setText("Φυλο: Παραλίας");
+
+            TextView fb_prof = (TextView) findViewById(R.id.fb);
+            //fb_prof.setText("Facebook: Γιαννης Σαρηκωστας");
+
+            TextView arithmos_prwin = (TextView) findViewById(R.id.arithmos_prwin);
+            //arithmos_prwin.setText("Αριθμός Πρώην: Οσες λέει μείον 10");
+
+            TextView til = (TextView) findViewById(R.id.til);
+            //til.setText("69********");
+
+            TextView stathero = (TextView) findViewById(R.id.stathero);
+            //stathero.setText("2310******(Τζαμπα θα παρεις ειναι αλλου)");
         }
     }
 }

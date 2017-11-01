@@ -1,7 +1,6 @@
 package com.christosfountoulis.flashchatnewfirebase.WelcomeTillMsg;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -33,8 +32,7 @@ public class LoginActivity extends AppCompatActivity implements LogInToFirebase.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
+        setContentView(R.layout.login);
 
         mEmailView = (AutoCompleteTextView) findViewById(R.id.login_email);
         mPasswordView = (EditText) findViewById(R.id.login_password);
